@@ -47,10 +47,10 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
   Build_script:
-      - export BUILD_USERNAME="gunterez-ci"
-      - export BUILD_HOSTNAME="gunterez"
-      - export KBUILD_BUILD_USER="gunterez-ci"
-      - export KBUILD_BUILD_HOST="gunterez"
+      - export BUILD_USERNAME="ghou8s-ci"
+      - export BUILD_HOSTNAME="ghou8s"
+      - export KBUILD_BUILD_USER="ghou8s-ci"
+      - export KBUILD_BUILD_HOST="ghou8s"
 #      - export WITH_GAPPS=true
       - sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build nusantara joyeuse Started!"
