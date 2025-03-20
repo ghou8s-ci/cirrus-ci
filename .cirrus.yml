@@ -40,9 +40,19 @@ task:
       - cd ~/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/keepQASSA/manifest.git -b Q -g default,-mips,-darwin,-notdefault
       - git clone --depth 1 https://github.com/ghou8s/local_manifest.git -b qassa-joyeuse .repo/local_manifests
+      - sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install
+
       - sed -i 's|ssh://git@github.com|https://github.com|g' .repo/manifests/snippets/qassa.xml
+      - cd external/chromium-webview/prebuilt/arm && git lfs pull
+      - cd ~/rom
+      - cd external/chromium-webview/prebuilt/arm64 && git lfs pull
+      - cd ~/rom
+      - cd external/chromium-webview/prebuilt/x86 && git lfs pull
+      - cd ~/rom
+      - cd external/chromium-webview/prebuilt/x86_64 && git lfs pull
+      - cd ~/rom
 #      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8 --fail-fast
-      - repo sync -c -j8 --force-sync --no-clone-bundle --no-tags
+      - repo sync -c -j6 --force-sync --no-clone-bundle --no-tags
       - sed -i 's| -u||g' vendor/qassa/config/branding.mk
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
